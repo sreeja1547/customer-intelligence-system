@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 app= FastAPI()
-pipeline = joblib.load("customer_model.pkl")
+pipeline = joblib.load("model/customer_model.pkl")
 
 from pydantic import BaseModel
 
@@ -34,3 +34,4 @@ def predict_churn(data: ChurnInput):
     prediction = pipeline.predict(input_df)[0]
 
     return {"Churn Prediction": prediction}
+
